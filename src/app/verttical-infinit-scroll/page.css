@@ -1,0 +1,30 @@
+/* for our teck stack component */
+
+/* Looper styles */
+@keyframes slideAnim {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+.looper__innerList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+}
+
+.looper__innerList[data-animate="true"] .looper__listInstance {
+  animation: slideAnim linear infinite;
+}
+
+.looper__listInstance {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  animation: none;
+}
+
+/* for our teck stack component */

@@ -31,3 +31,21 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .CustomButton {
+    @apply bg-[linear-gradient(85deg,_rgba(173,19,251,1)_35%,_rgba(25,75,253,1)_100%)];
+  }
+  .CustomLightButton {
+    @apply bg-[linear-gradient(85deg,_rgba(173,19,251,0.7)_35%,_rgba(25,75,253,0.7)_100%)];
+  }
+  .CustomSocialGradiant {
+    @apply bg-[linear-gradient(0deg,#FFFFFF99_0%,#FFFFFF00_30%,#FFFFFF00_56%,#FFFFFF00_80%,#FFFFFF99_100%)];
+  }
+  .CustomLinkedInGradiant {
+    @apply bg-[linear-gradient(0deg,#4875B4_0%,#4875B400_45%,#4875B400_50%,#4875B400_50%,#4875B4_100%)];
+  }
+  .CustomInstagramGradiant {
+    @apply bg-[linear-gradient(0deg,#CA1C95_0%,#F45E6A_5%,#F8D40C80_20%,#FFFFFF00_40%,#FFFFFF00_45%,#F8D40C80_80%,#F45E6A_95%,#CA1C95_100%)];
+  }
+}
