@@ -77,7 +77,7 @@ const MobileSidebar = ({ isOpen, setOpen, HomeNav, location }: any) => {
                       href={item.url}
                       onClick={() => setOpen(false)}
                       className={
-                        "group flex items-center space-x-2 text-lg font-light p-3 rounded-lg transition-all"
+                        "group text-white capitalize flex items-center space-x-2 text-lg font-light p-3 rounded-lg transition-all"
                       }
                     >
                       <motion.span

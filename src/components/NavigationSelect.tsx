@@ -1,36 +1,53 @@
 "use client";
 
-import { Links } from "@/constants/NavigationPages";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
-export default function NavigationSelect() {
+import { Links } from "@/constants/NavigationPages";
+
+const NavigationSelect = () => {
   const router = useRouter();
+  const [currentPath, setCurrentPath] = useState<string>("");
 
-  const handleNavigation = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedPage = e.target.value;
-    if (selectedPage) {
-      router.push(selectedPage);
-    }
+  // Update current path when component mounts and when route changes
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
+
+  const handleNavigation = (value: string) => {
+    router.push(value);
+    setCurrentPath(value);
   };
 
   return (
-    <div className=" mx-auto mt-4 mb-[5rem] w-full flex justify-center   ">
-      <select
-        className="text-black rounded-md max-w-[450px] w-full py-2 px-4 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500    "
-        defaultValue=""
-        onChange={handleNavigation}
-      >
-        <option value="" disabled>
-          Select a page
-        </option>
-        {Links.map((item, index) => {
-          return (
-            <option key={index} value={item.url}>
+    <div className="w-full max-w-xl mx-auto mt-4 mb-20 bg-black  ">
+      <Select value={currentPath} onValueChange={handleNavigation}>
+        <SelectTrigger className="w-full bg-white  backdrop-blur-sm border-gray-200 hover:bg-gray-50 transition-colors">
+          <SelectValue placeholder="Select a page" />
+        </SelectTrigger>
+        <SelectContent className="max-h-[300px] overflow-y-auto">
+          {Links.map((item, index) => (
+            <SelectItem
+              key={index}
+              value={item.url}
+              className={`cursor-pointer ${
+                currentPath === item.url ? "bg-gray-100" : ""
+              }`}
+            >
               {item.name}
-            </option>
-          );
-        })}
-      </select>
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
-}
+};
+
+export default NavigationSelect;
