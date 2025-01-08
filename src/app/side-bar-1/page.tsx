@@ -141,7 +141,7 @@ const Page = () => {
   return (
     <div>
       <div>
-        <div className="  block  ">
+        <div className="   flex items-center justify-center  ">
           <Hamburger color="white" toggled={isOpen} toggle={setOpen} />
         </div>
       </div>
